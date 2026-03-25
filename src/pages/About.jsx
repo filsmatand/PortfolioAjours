@@ -103,7 +103,7 @@ export default function About() {
             </div>
 
             {/* Badge */}
-            <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-lg">
+            <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-600 via-green-700 to-slate-900  text-white px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-lg">
               Front-End Developer
             </div>
           </motion.div>
@@ -174,7 +174,7 @@ export default function About() {
             ))}
           </div>
 
-          <button className="mt-6 sm:mt-10 px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-lg shadow-lg hover:scale-105 transition">
+          <button className="mt-6 sm:mt-10 px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-green-600 via-green-700 to-slate-900  text-white font-bold rounded-lg shadow-lg hover:scale-105 transition">
             Let's Work Together
           </button>
         </motion.div>

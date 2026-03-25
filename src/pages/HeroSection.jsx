@@ -57,7 +57,7 @@ export default function Router() {
 
          
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <button className="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-xl font-semibold transition duration-300 shadow-lg">
+            <button className="bg-gradient-to-r from-green-600 via-green-700 to-slate-900  hover:bg-green-600 px-6 py-3 rounded-xl font-semibold transition duration-300 shadow-lg">
               View Projects
             </button>
 

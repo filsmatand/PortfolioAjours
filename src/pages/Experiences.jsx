@@ -50,6 +50,7 @@ export default function Experience() {
   return (
     <section className="min-h-screen bg-[#020617] text-white px-6 md:px-16 py-24">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
+        
 
         {/* ================= LEFT SIDE (EXPERIENCE) ================= */}
         <div>
