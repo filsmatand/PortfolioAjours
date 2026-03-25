@@ -19,6 +19,7 @@
     "react-intersection-observer": "^10.0.3",
     "react-router-dom": "^7.13.1",
     "react-scripts": "^5.0.1",
+    "recharts": "^3.8.1",
     "split-type": "^0.3.4",
     "three": "^0.183.2",
     "web-vitals": "^2.1.4"
