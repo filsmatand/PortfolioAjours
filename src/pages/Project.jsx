@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import img1 from "../images/img1.jpg";
-import img2 from "../images/img2.jpg";
+import img1 from "../images/im11.jpg";
+import img2 from "../images/im13.jpg";
+import img3 from "../images/im14.jpg"
 
 export default function Project() {
 
@@ -23,7 +24,7 @@ export default function Project() {
       title: "3D Interactive Website",
       description:
         "Creative website using Three.js and advanced scroll animations inspired by Awwwards websites.",
-      image: img1,
+      image: img3,
       tech: ["Three.js", "GSAP", "React"],
     },
   ];
@@ -57,11 +58,11 @@ export default function Project() {
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-72 object-cover group-hover:scale-110 transition duration-500"
+              className="w-full h-72 object-cover group-hover:scale-110 transition "
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-6">
+            <div className="absolute inset-0 bg-black/70 opacity-1 group-hover:opacity-100 transition  flex flex-col justify-end p-6">
               
               <h3 className="text-xl font-bold text-white">
                 {project.title}
