@@ -7,10 +7,6 @@ export default function Footer() {
       
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-center">
 
-     
-
-     
-          
 
         {/* Réseaux sociaux */}
         <motion.div

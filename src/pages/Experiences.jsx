@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Experience() {
   const experiences = [
@@ -25,10 +25,15 @@ export default function Experience() {
     },
   ];
 
+  // Scroll progress pour effets 3D
+  const { scrollYProgress } = useScroll();
+  const scaleLine = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+  const rotateCards = useTransform(scrollYProgress, [0, 1], [0, 10]);
+  const translateZCards = useTransform(scrollYProgress, [0, 1], [0, 50]);
+
   return (
     <section className="w-full min-h-screen bg-gradient-to-b from-black via-gray-900 to-black flex items-center justify-center px-6 md:px-16">
       <div className="max-w-6xl w-full">
-
         {/* Titre */}
         <motion.h2
           className="text-3xl md:text-5xl font-bold text-white text-center mb-16"
@@ -40,28 +45,34 @@ export default function Experience() {
         </motion.h2>
 
         {/* Timeline */}
-        <div className="relative">
-
-          {/* Ligne verticale */}
-          <div className="absolute left-4 md:left-1/2 top-0 h-full w-[2px] bg-green-500/40"></div>
+        <div className="relative perspective-1000">
+          {/* Ligne verticale animée */}
+          <motion.div
+            className="absolute left-4 md:left-1/2 top-0 h-full w-[2px] bg-green-500/40 origin-top"
+            style={{ scaleY: scaleLine }}
+          ></motion.div>
 
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              className={`relative mb-14 flex flex-col md:flex-row items-start md:items-center ${
-                index % 2 === 0 ? "md:flex-row-reverse" : ""
-              }`}
-              initial={{ opacity: 0, y: 40 }}
+              className={`relative mb-20 flex flex-col md:flex-row items-start md:items-center`}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
               {/* Point timeline */}
               <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-green-500 rounded-full shadow-lg shadow-green-500/50"></div>
 
-              {/* Carte */}
-              <div className="ml-12 md:ml-0 md:w-1/2">
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-xl hover:scale-105 transition duration-300">
-
+              {/* Carte avec effet 3D */}
+              <motion.div
+                className={`md:w-1/2`}
+                style={{
+                  rotateY: index % 2 === 0 ? rotateCards : rotateCards.pipe((r) => -r),
+                  translateZ: translateZCards,
+                  perspective: 1000,
+                }}
+              >
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-500 cursor-pointer">
                   <span className="text-green-400 text-sm font-semibold">
                     {exp.year}
                   </span>
@@ -76,11 +87,10 @@ export default function Experience() {
                     {exp.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );
