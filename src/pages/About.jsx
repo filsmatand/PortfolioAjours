@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import img from "../images/about.png";
+import img from "../images/about.jpg";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -75,12 +75,14 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-4 sm:px-6"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-10 sm:px-6"
     >
       <motion.div
         style={{ scale, y }}
-        className="w-full max-w-7xl py-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16"
-      >
+        className="w-full max-w-7xl py-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          <h2 className="mb-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Why My Profile Matches Your Needs
+          </h2>
         {/* IMAGE */}
         <motion.div
           className="w-full flex justify-center lg:justify-start"
@@ -90,7 +92,7 @@ export default function About() {
         >
           <motion.div
             style={{ y: imageY }}
-            className="relative w-[220px] sm:w-[280px] md:w-[340px] lg:w-[400px]"
+            className="relative w-[340px] sm:w-[400px] md:w-[340px] lg:w-[400px]"
           >
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img
@@ -150,11 +152,9 @@ export default function About() {
           animate={{ opacity: show ? 1 : 0, x: show ? 0 : 60 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-            Why My Profile Matches Your Needs
-          </h2>
+          
 
-          <p className="text-slate-300 mt-4 sm:mt-6 text-sm sm:text-base md:text-lg leading-relaxed">
+          <p className="text-slate-300 mt-1 sm:mt-6 text-sm sm:text-base md:text-lg leading-relaxed">
             I am able to transform an idea or a design mockup into a
             professional, responsive and modern website. I focus on performance,
             design quality and user experience to create interfaces that truly
