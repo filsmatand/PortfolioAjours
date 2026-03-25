@@ -32,7 +32,7 @@ export default function Router() {
       <div className="relative  md:mt-4 mt-20 z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
        
-        <div className="text-white text-center md:text-left ">
+        <div className="text-white text-left md:text-left ">
           <motion.h4 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

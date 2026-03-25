@@ -1,45 +1,28 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function AnimatedText({ text }) {
-
-  const letters = Array.from(text);
-
-
-  const container = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      transition: { 
-        staggerChildren: 0.05, 
-      },
-    }),
-  };
-
-  const child = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-  };
+export default function AnimatedText({ text, className = "" }) {
+  // On sépare le texte en mots
+  const words = text.split(" ");
 
   return (
     <motion.h1
-      className="text-5xl font-bold text-justify-justify text-white mb-4"
-      variants={container}
-      initial="hidden"
-      whileInView="visible" // déclenche l'animation au scroll
-      viewport={{ once: true, amount: 0.5 }} // moitié du texte visible
+      className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white flex flex-wrap ${className}`}
     >
-      {letters.map((letter, index) => (
-        <motion.span key={index} variants={child}>
-          {letter}
+      {words.map((word, index) => (
+        <motion.span
+          key={index}
+          className="mr-3 inline-block"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            delay: index * 0.15, // décalage entre les mots
+            type: "spring",
+            damping: 12,
+            stiffness: 100,
+          }}
+        >
+          {word}
         </motion.span>
       ))}
     </motion.h1>
